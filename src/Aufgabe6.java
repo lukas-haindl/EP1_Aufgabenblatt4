@@ -7,8 +7,33 @@ import java.util.Arrays;
 public class Aufgabe6 {
 
     private static int[][] generateReformattedArray(int[][] inputArray) {
-        // TODO: Implementieren Sie hier Ihre Lösung für die Methode
-        return null; //Zeile kann geändert oder entfernt werden.
+        int[][] outputArray = new int[inputArray.length][];
+        int length;
+        for (int i = 0; i < outputArray.length; i++) {
+            length = 0;
+            int posRepeatArray = 0;
+            int [] repeatArray = new int[inputArray[i].length / 2];
+            for (int j = 0; j < inputArray[i].length; j++) {
+                if (j % 2 == 0){
+                    length += inputArray[i][j];
+                    repeatArray[posRepeatArray] = inputArray[i][j];
+                    posRepeatArray++;
+                }
+            }
+            outputArray[i] = new int[length];
+            int posOutputArray = 0;
+            posRepeatArray = 0;
+            for (int j = 0; j < inputArray[i].length; j++) {
+                if (j % 2 != 0){
+                    for (int k = 0; k < repeatArray[posRepeatArray]; k++) {
+                        outputArray[i][posOutputArray] = inputArray[i][j];
+                        posOutputArray++;
+                    }
+                    posRepeatArray++;
+                }
+            }
+        }
+        return outputArray; //Zeile kann geändert oder entfernt werden.
     }
 
     //Vorgegebene Methode - BITTE NICHT VERÄNDERN!
