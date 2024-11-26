@@ -7,8 +7,28 @@ import java.util.Arrays;
 public class Aufgabe4 {
 
     private static int[][] generateFilled2DArray(int n) {
-        // TODO: Implementieren Sie hier Ihre Lösung für die Methode
-        return null; //Zeile kann geändert oder entfernt werden.
+        int[][] array = new int[n][n];
+        int halfN = n / 2;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (j == halfN && i == halfN){
+                    array[i][j] = 1;
+                }
+                else if (Math.abs(i - halfN) <= 1 && Math.abs(j - halfN) <= 1){
+                    array[i][j] = -1;
+                }
+                else {
+                    if (j < i){
+                        array[i][j] = i + 1 - j;
+                    }
+                    else{
+                        array[i][j] = j + 1 - i;
+                    }
+                }
+            }
+        }
+
+        return array;
     }
 
     //Vorgegebene Methode - BITTE NICHT VERÄNDERN!

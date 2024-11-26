@@ -7,8 +7,20 @@ import java.util.Arrays;
 public class Aufgabe5 {
 
     private static int[][] generateExtendedArray(int[] inputArray) {
-        // TODO: Implementieren Sie hier Ihre Lösung für die Methode
-        return null; //Zeile kann geändert oder entfernt werden.
+        int[][] array = new int[inputArray[1]-inputArray[0] + 1][];
+
+        int input = inputArray[2];
+        int maxLength = inputArray[0];
+        for (int i = 0; i < inputArray[1]-inputArray[0] + 1; i++) {
+            array[i] = new int[maxLength];
+            for (int j = 0; j < maxLength; j++) {
+                array[i][j] = input;
+                input++;
+            }
+            maxLength++;
+        }
+        return array;
+
     }
 
     //Vorgegebene Methode - BITTE NICHT VERÄNDERN!

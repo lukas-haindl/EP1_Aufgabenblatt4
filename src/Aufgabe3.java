@@ -7,7 +7,23 @@ import java.util.Arrays;
 public class Aufgabe3 {
 
     private static void replaceValues(int[] workArray) {
-        //TODO: Implementieren Sie hier Ihre Lösung für die Angabe
+        int tmp = workArray[0];
+        int min = tmp;
+        int max = tmp;
+        for (int i = 1; i < workArray.length; i++) {
+            min = Math.min(workArray[i], min);
+            max = Math.max(workArray[i], max);
+            tmp = workArray[i];
+        }
+        for (int i = 0; i < workArray.length; i++) {
+            if (Math.abs(workArray[i] - min) > Math.abs(workArray[i] - max)) {
+                workArray[i] = max;
+            }
+            else{
+                workArray[i] = min;
+            }
+        }
+
     }
 
     public static void main(String[] args) {
